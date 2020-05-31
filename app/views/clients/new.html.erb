@@ -1,0 +1,9 @@
+<p>顧客登録</p>
+<%= form_with model:@client,local:true do |f| %>
+  <p>顧客名：<%= f.text_field :name %></p>
+  <p>郵便番号：<%= f.text_field :post_code %></p>
+  <p>住所：<%= f.text_field :address %></p>
+  <p>電話番号：<%= f.text_field :tel %></p>
+  <%= f.submit "登録"%>
+<% end %>
+<%= link_to "戻る", clients_path %>

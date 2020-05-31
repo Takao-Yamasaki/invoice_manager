@@ -1,0 +1,22 @@
+<%= link_to "顧客登録",new_client_path %>
+<p>顧客マスタ</p>
+  <table = "1">
+  <thead>
+    <td>顧客ID</td>
+    <td>顧客名</td>
+    <td>郵便番号</td>
+    <td>住所</td>
+    <td>電話番号</td>
+  </thead>
+  <% @clients.each do |client| %>
+    <tr>
+      <td><%= client.id %></td>
+      <td><%= client.name %></td>
+      <td><%= client.post_code %></td>
+      <td><%= client.address %></td>
+      <td><%= client.tel %></td>
+      <td><%= link_to "編集",edit_client_path(client) %></td>
+      <td><%= link_to "削除",client_path(client),method: :delete,data: {confirm:"削除しますか？"} %></td>
+    </tr>
+  <% end %>
+  </table>

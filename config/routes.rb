@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :items
+  resources :client
   resources :pdfs,only: :index do
     collection do
       get :output

@@ -1,0 +1,24 @@
+<%= link_to "商品登録",new_item_path %>
+<p>商品マスタ一覧</p>
+ <table border = "1">
+  <thead>
+        <tr>
+          <td>商品ID</td>
+          <td>商品名</td>
+          <td>価格</td>
+          <td>編集</td>
+          <td>削除</td>
+        </tr>
+  </thead>
+  <% @items.each do |item| %>
+    <tbody>
+      <tr>
+        <td><%= item.id %></td>
+        <td><%= item.name %></td>
+        <td><%= item.price %>円</td>
+        <td><%= link_to "編集",edit_item_path(item) %></td>
+        <td><%= link_to "削除", item_path(item),method: :delete,data: {confirm: "削除しますか？"} %></td>
+      </tr>
+    </tbody>
+  <% end %>
+  </table>

@@ -1,0 +1,11 @@
+<p>請求内容一覧</p>
+<% @summaries.each do |summary| %>
+  <p>
+    <%= summary.invoice_id %>
+    <%= summary.item_id %>
+    <%= summary.amount %>
+    <%= summary.registration %>
+    <%= link_to "編集",edit_summary_path(summary) %>
+    <%= link_to "削除",summary_path(summary),method: :delete,data:{confirm: "削除してもいいですか？"} %>
+  </p>
+<% end %>

@@ -1,11 +1,30 @@
-<p>請求内容一覧</p>
+<%= link_to "商品マスタ",items_path %>
+<%= link_to "顧客マスタ",clients_path %>
+<%= link_to "PDF保存",output_pdfs_path %></p>
+<p>請求一覧</p>
 <% @summaries.each do |summary| %>
-  <p>
-    <%= summary.invoice_id %>
-    <%= summary.item_id %>
-    <%= summary.amount %>
-    <%= summary.registration %>
-    <%= link_to "編集",edit_summary_path(summary) %>
-    <%= link_to "削除",summary_path(summary),method: :delete,data:{confirm: "削除してもいいですか？"} %>
-  </p>
+  <table = "1">
+    <thead>
+      <tr>
+        <td>請求ID</td>
+        <td>顧客名</td>
+        <td>商品名</td>
+        <td>価格</td>
+        <td>数量</td>
+        <td>登録日</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= summary.invoice_id %></td>
+        <td><%= summary.client_name %></td>
+        <td><%= summary.item_name %></td>
+        <td><%= summary.item_price %></td>
+        <td><%= summary.amount %></td>
+        <td><%= summary.registration %></td>
+        <td><%= link_to "編集",edit_summary_path(summary) %></td>
+        <td><%= link_to "削除",summary_path(summary),method: :delete,data:{confirm: "削除してもいいですか？"} %></td>
+      </tr>
+    </tbody>
+  </thead>
 <% end %>

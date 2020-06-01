@@ -1,6 +1,6 @@
 class SummariesController < ApplicationController
   def index
-    @summaries = Summary.all
+    @summaries = Item.joins(summaries: :client).select("items.name AS item_name,items.price AS item_price,summaries.*,clients.name AS client_name")
   end
   
   def new
